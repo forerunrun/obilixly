@@ -16,9 +16,7 @@
     <script src="Build/UnityLoader.js"></script>
     <script>
         UnityLoader.instantiate("gameContainer", "Build/obilixlyGL.json", {onProgress: UnityProgress});
-    </script>
-    <style>
-function startup() {
+    	function startup() {
 		window.onresize = function() {
 			resizeGame();
 		};
@@ -43,12 +41,46 @@ function startup() {
 		element.style.margin = "auto";
 
 	}
-    </style>
-</head>
-<body>
-<div class="webgl-content">
-    <div id="gameContainer"></div>
-</div>
-</body>
+    </script>
+    <style>
+    		html {
+    			background-color: #000;
+    			color: #ccc;
+    			margin: 0;
+    			padding: 0;
+    		}
+    		body {
+    			margin: auto;
+    			padding-top: 1em;
+			padding-bottom:0em;
+    			padding: 2em;
+    			padding-top: 0em;
+    			text-align: center;
+    		}
+ 
+		canvas {  
+		 width: 100%;  
+		 height: 100%;  
+		}
+		#gameContainer { margin: auto; }
+		#containerDiv {
+			object-fit: contain;
+			max-width: 100%;
+			max-height: 100%;
+			width: auto;
+			height: auto;
+			margin: 4em;
+			margin-top: 0em;
+			margin-bottom:.9em;
+   		}
+ 	</style>
+  </head>
+  <body onload="startup();">
+  	<div id="containerDiv">
+		<div class="webgl-content">
+			<div id="gameContainer"></div>
+		</div>
+	</div>
+	</body>
 </html>
 
