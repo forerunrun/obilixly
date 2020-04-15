@@ -1,7 +1,4 @@
 var UnityLoader = UnityLoader || {
-    compatibilityCheck: function(e, t, r) {
-        t();
-    },
     Compression: {
         identity: {
             require: function() {
