@@ -15,6 +15,7 @@
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
+        UnityLoader.Error.handler= function(){}
         UnityLoader.instantiate("gameContainer", "Build/obilixlyGL.json", {onProgress: UnityProgress});
     </script>
     <style>
