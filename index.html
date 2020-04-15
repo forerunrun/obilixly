@@ -18,19 +18,31 @@
         UnityLoader.instantiate("gameContainer", "Build/obilixlyGL.json", {onProgress: UnityProgress});
     </script>
     <style>
-        body {
-            margin: 0;
-        }
-      #gameContainer {
-            width: 100%;
-            height: 100%;
-        }
+function startup() {
+		window.onresize = function() {
+			resizeGame();
+		};
+		resizeGame();
+	}
+	function resizeGame() {
+	
+		//	Ensure that the game fits within the width of its containing
+		//	div, and is shallower than the height of the containing window.
+	
+		var containerDiv = document.getElementById('containerDiv');
+		var element = document.getElementById('gameContainer');      // the element
+		
+		var widthLimitedScale = Math.floor( containerDiv.offsetWidth ) / 1024.0;
+		var heightLimitedScale = (Math.floor( window.innerHeight ) - 50) / 768.0;
+		
+		var scale = widthLimitedScale;
+		if (heightLimitedScale < scale) scale = heightLimitedScale;
+		
+		element.style.width = Math.floor(1024 * scale) + 'px';
+		element.style.height = Math.floor(768 * scale) + 'px';
+		element.style.margin = "auto";
 
-        canvas {
-            width: 100%; height:100%;
-        }
-
-
+	}
     </style>
 </head>
 <body>
