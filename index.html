@@ -18,15 +18,25 @@
         UnityLoader.instantiate("gameContainer", "Build/obilixlyGL.json", {onProgress: UnityProgress});
     </script>
     <style>
-           canvas {
-     width: 100%;
-     height: 100%;
-     position: absolute;
-     }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            position: absolute;
+            width: 100%; height:100%;
+        }
+
+        canvas, .webgl-content, #gameContainer {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
-  <div id="gameContainer" style="width: 100%; height: 100%; position: absolute; margin: auto"></div>
+
+    <div id="gameContainer"></div>
 </body>
 </html>
 
