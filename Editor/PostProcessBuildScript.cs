@@ -1,13 +1,17 @@
- using UnityEngine;
- using UnityEditor;
- using UnityEditor.Callbacks;
- 
- public class PostProcessBuildScript
- {
-     [PostProcessBuildAttribute(1)]
-     public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject)
+ using System;
+     using System.IO;
+     using System.Text.RegularExpressions;
+     using UnityEditor;
+     using UnityEditor.Callbacks;
+     
+     public class PostProcessBuildScript
      {
-         Debug.Log("Called from OnPostprocessBuild: "+pathToBuiltProject);
+         [PostProcessBuildAttribute(1)]
+         public static void OnPostProcessBuild(BuildTarget target, string targetPath)
+         {
+             var path = Path.Combine(targetPath, "Build/UnityLoader.js");
+             var text = File.ReadAllText(path);
+             text = text.Replace("UnityLoader.SystemInfo.mobile", "false");
+             File.WriteAllText(path, text);
+         }
      }
- }
-
